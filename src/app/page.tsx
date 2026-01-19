@@ -227,15 +227,7 @@ export default function Home() {
   };
 
   if (!isMounted) {
-    return (
-      <div className="flex flex-col gap-12 pb-20 opacity-0">
-        <section className="bg-white pt-6">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="aspect-[21/9] sm:aspect-[25/8] w-full bg-gray-100 animate-pulse rounded-2xl" />
-          </div>
-        </section>
-      </div>
-    );
+    return null;
   }
 
   return (
