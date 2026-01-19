@@ -207,6 +207,12 @@ function getRandomProducts(products: ProductType[], count: number): ProductType[
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [randomProducts, setRandomProducts] = useState<ProductType[]>([]);
+
+  // Get random 10 products on mount
+  useState(() => {
+    setRandomProducts(getRandomProducts(sembakoProducts, 10));
+  });
 
   const handleViewDetail = (product: ProductType) => {
     setSelectedProduct(product);
