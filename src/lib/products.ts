@@ -223,7 +223,7 @@ export const sembakoProducts: ProductType[] = [
     id: "ikan-1",
     name: "Ikan Tongkol Segar 1kg",
     price: 35000,
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&h=500&fit=crop",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/18a9710d-bdb1-4658-ba0c-0bbaf9a2020b/image-1768839923028.png?width=500&height=500&resize=contain",
     category: "Ikan",
     unit: "Kg",
     description: "Ikan tongkol segar tangkapan nelayan lokal, kaya omega-3.",
