@@ -7,15 +7,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 const sembakoCategories = [
-  { name: "Beras", icon: Wheat, href: "#beras" },
-  { name: "Gula", icon: Cookie, href: "#gula" },
-  { name: "Minyak Goreng", icon: Droplets, href: "#minyak" },
-  { name: "Daging", icon: Beef, href: "#daging" },
-  { name: "Telur", icon: Egg, href: "#telur" },
-  { name: "Susu", icon: Milk, href: "#susu" },
-  { name: "Garam & Bumbu", icon: Flame, href: "#bumbu" },
-  { name: "Ikan", icon: Fish, href: "#ikan" },
-  { name: "Sayuran", icon: LeafyGreen, href: "#sayuran" },
+  { name: "Beras", icon: Wheat, href: "/kategori/beras" },
+  { name: "Gula", icon: Cookie, href: "/kategori/gula" },
+  { name: "Minyak Goreng", icon: Droplets, href: "/kategori/minyak-goreng" },
+  { name: "Daging", icon: Beef, href: "/kategori/daging" },
+  { name: "Telur", icon: Egg, href: "/kategori/telur" },
+  { name: "Susu", icon: Milk, href: "/kategori/susu" },
+  { name: "Garam & Bumbu", icon: Flame, href: "/kategori/garam-bumbu" },
+  { name: "Ikan", icon: Fish, href: "/kategori/ikan" },
+  { name: "Sayuran", icon: LeafyGreen, href: "/kategori/sayuran" },
 ];
 
 export function Navbar() {
