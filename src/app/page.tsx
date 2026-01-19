@@ -210,9 +210,9 @@ export default function Home() {
   const [randomProducts, setRandomProducts] = useState<ProductType[]>([]);
 
   // Get random 10 products on mount
-  useState(() => {
+  useEffect(() => {
     setRandomProducts(getRandomProducts(sembakoProducts, 10));
-  });
+  }, []);
 
   const handleViewDetail = (product: ProductType) => {
     setSelectedProduct(product);
