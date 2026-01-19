@@ -48,9 +48,9 @@ export function ProductCard({ product, onViewDetail, isBestSeller }: ProductCard
           />
         </div>
 
-      {/* Info */}
-      <div className="flex-1 flex flex-col">
-        <p className="text-[10px] font-bold text-primary uppercase mb-1">{product.category}</p>
+        {/* Info */}
+        <div className="flex-1 flex flex-col p-4">
+          <p className="text-[10px] font-bold text-primary uppercase mb-1">{product.category}</p>
         <h3 className="text-sm font-bold text-gray-900 leading-snug mb-2 line-clamp-2 h-10 group-hover:text-primary transition-colors">
           {product.name}
         </h3>
