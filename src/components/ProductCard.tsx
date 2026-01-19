@@ -51,35 +51,35 @@ export function ProductCard({ product, onViewDetail, isBestSeller }: ProductCard
         {/* Info */}
         <div className="flex-1 flex flex-col p-4">
           <p className="text-[10px] font-bold text-primary uppercase mb-1">{product.category}</p>
-        <h3 className="text-sm font-bold text-gray-900 leading-snug mb-2 line-clamp-2 h-10 group-hover:text-primary transition-colors">
-          {product.name}
-        </h3>
-        
-        <div className="mt-auto">
-          {product.originalPrice && (
-            <p className="text-[11px] text-gray-400 line-through mb-0.5">
-              {formatPrice(product.originalPrice)}
-            </p>
-          )}
-          <div className="flex items-baseline gap-1.5">
-            <span className="text-base font-black text-primary">
-              {formatPrice(product.price)}
-            </span>
-            <span className="text-[10px] font-bold text-gray-500 italic">/{product.unit}</span>
+          <h3 className="text-sm font-bold text-gray-900 leading-snug mb-2 line-clamp-2 h-10 group-hover:text-primary transition-colors">
+            {product.name}
+          </h3>
+          
+          <div className="mt-auto">
+            {product.originalPrice && (
+              <p className="text-[11px] text-gray-400 line-through mb-0.5">
+                {formatPrice(product.originalPrice)}
+              </p>
+            )}
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-base font-black text-primary">
+                {formatPrice(product.price)}
+              </span>
+              <span className="text-[10px] font-bold text-gray-500 italic">/{product.unit}</span>
+            </div>
+          </div>
+
+          {/* Detail Button */}
+          <div className="mt-4">
+            <Button 
+              onClick={() => onViewDetail(product)}
+              className="w-full bg-secondary hover:bg-secondary/80 text-gray-900 font-bold h-9 rounded-lg gap-2 shadow-sm border-b-2 border-primary/20"
+            >
+              <Eye className="w-4 h-4" />
+              <span>Lihat Detail</span>
+            </Button>
           </div>
         </div>
       </div>
-
-      {/* Detail Button */}
-      <div className="mt-4">
-        <Button 
-          onClick={() => onViewDetail(product)}
-          className="w-full bg-secondary hover:bg-secondary/80 text-gray-900 font-bold h-9 rounded-lg gap-2 shadow-sm border-b-2 border-primary/20"
-        >
-          <Eye className="w-4 h-4" />
-          <span>Lihat Detail</span>
-        </Button>
-      </div>
-    </div>
-  );
+    );
 }
