@@ -111,20 +111,20 @@ export function Navbar() {
               </div>
               
               {/* Dropdown */}
-              {isCategoryOpen && (
-                <div className="absolute top-full left-0 bg-white shadow-xl rounded-b-xl border border-gray-100 min-w-[280px] py-2 z-50">
-                  {sembakoCategories.map((cat, index) => (
-                    <a 
-                      key={index}
-                      href={cat.href}
-                      className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors"
-                    >
-                      <cat.icon className="w-5 h-5 text-primary" />
-                      <span className="font-semibold text-gray-700">{cat.name}</span>
-                    </a>
-                  ))}
-                </div>
-              )}
+                {isCategoryOpen && (
+                  <div className="absolute top-full left-0 bg-white shadow-xl rounded-b-xl border border-gray-100 min-w-[280px] py-2 z-50">
+                    {sembakoCategories.map((cat, index) => (
+                      <Link 
+                        key={index}
+                        href={cat.href}
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors"
+                      >
+                        <cat.icon className="w-5 h-5 text-primary" />
+                        <span className="font-semibold text-gray-700">{cat.name}</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
             </div>
               <div className="flex gap-6 ml-6 text-sm font-semibold text-gray-700">
                 <Link href="/kategori/beras" className="hover:text-primary transition-colors">Beras</Link>
