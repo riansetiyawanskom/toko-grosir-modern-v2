@@ -1,24 +1,17 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import { Plus, Heart } from "lucide-react";
+import { Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { ProductType } from "@/components/ProductDetailModal";
 
-interface ProductProps {
-  id: string;
-  name: string;
-  price: number;
-  originalPrice?: number;
-  image: string;
-  category: string;
-  unit: string;
-  isNew?: boolean;
-  discount?: string;
+interface ProductCardProps {
+  product: ProductType;
+  onViewDetail: (product: ProductType) => void;
 }
 
-export function ProductCard({ product }: { product: ProductProps }) {
+export function ProductCard({ product, onViewDetail }: ProductCardProps) {
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
@@ -39,10 +32,6 @@ export function ProductCard({ product }: { product: ProductProps }) {
         )}
       </div>
 
-      <button className="absolute top-2 right-2 z-10 p-1.5 bg-white/80 backdrop-blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:text-primary">
-        <Heart className="w-4 h-4" />
-      </button>
-
       {/* Image */}
       <div className="relative aspect-square mb-4 overflow-hidden rounded-lg bg-gray-50 flex items-center justify-center p-4">
         <img 
@@ -54,7 +43,7 @@ export function ProductCard({ product }: { product: ProductProps }) {
 
       {/* Info */}
       <div className="flex-1 flex flex-col">
-        <p className="text-[10px] font-bold text-gray-400 uppercase mb-1">{product.category}</p>
+        <p className="text-[10px] font-bold text-primary uppercase mb-1">{product.category}</p>
         <h3 className="text-sm font-bold text-gray-900 leading-snug mb-2 line-clamp-2 h-10 group-hover:text-primary transition-colors">
           {product.name}
         </h3>
@@ -74,11 +63,14 @@ export function ProductCard({ product }: { product: ProductProps }) {
         </div>
       </div>
 
-      {/* Add Button */}
+      {/* Detail Button */}
       <div className="mt-4">
-        <Button className="w-full bg-secondary hover:bg-secondary/80 text-primary-foreground font-bold h-9 rounded-lg gap-2 shadow-sm border-b-2 border-primary/20">
-          <Plus className="w-4 h-4" />
-          <span>Tambah</span>
+        <Button 
+          onClick={() => onViewDetail(product)}
+          className="w-full bg-secondary hover:bg-secondary/80 text-gray-900 font-bold h-9 rounded-lg gap-2 shadow-sm border-b-2 border-primary/20"
+        >
+          <Eye className="w-4 h-4" />
+          <span>Lihat Detail</span>
         </Button>
       </div>
     </div>
