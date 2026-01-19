@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/Header";
+import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import Script from "next/script";
 
@@ -26,7 +26,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           data-orchids-project-id="18a9710d-bdb1-4658-ba0c-0bbaf9a2020b"
         />
-        <Header />
+        <Navbar />
         <main className="min-h-screen">
           {children}
         </main>
