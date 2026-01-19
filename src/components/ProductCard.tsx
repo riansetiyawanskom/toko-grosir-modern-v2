@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { Eye, Flame } from "lucide-react";
+import React, { useState } from "react";
+import { Eye, Flame, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ProductType } from "@/components/ProductDetailModal";
@@ -13,12 +13,18 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product, onViewDetail, isBestSeller }: ProductCardProps) {
+  const [imageError, setImageError] = useState(false);
+  
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
       minimumFractionDigits: 0,
     }).format(price);
+  };
+
+  const handleImageError = () => {
+    setImageError(true);
   };
 
     return (
@@ -40,12 +46,21 @@ export function ProductCard({ product, onViewDetail, isBestSeller }: ProductCard
           </div>
 
         {/* Image - Full bleed to edges */}
-        <div className="relative aspect-square overflow-hidden bg-gray-50">
-          <img 
-            src={product.image} 
-            alt={product.name}
-            className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
-          />
+        <div className="relative aspect-square overflow-hidden bg-gray-100">
+          {imageError ? (
+            <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+              <Package className="w-12 h-12 text-gray-300 mb-2" />
+              <span className="text-[10px] text-gray-400 font-medium">{product.category}</span>
+            </div>
+          ) : (
+            <img 
+              src={product.image} 
+              alt={product.name}
+              className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
+              onError={handleImageError}
+              loading="lazy"
+            />
+          )}
         </div>
 
         {/* Info */}
