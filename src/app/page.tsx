@@ -5,204 +5,8 @@ import { HeroSlider } from "@/components/HeroSlider";
 import { CategoryGrid } from "@/components/CategoryGrid";
 import { ProductCard } from "@/components/ProductCard";
 import { ProductDetailModal, ProductType } from "@/components/ProductDetailModal";
+import { getRandomProducts } from "@/lib/products";
 import { Award, ShieldCheck, Truck, Phone } from "lucide-react";
-
-// Sembako Products Data
-const sembakoProducts: ProductType[] = [
-  // Beras
-  {
-    id: "beras-1",
-    name: "Beras Premium Cap Bunga 5kg",
-    price: 72000,
-    originalPrice: 78000,
-    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=500",
-    category: "Beras",
-    unit: "Karung",
-    discount: "8%",
-    description: "Beras premium kualitas terbaik, pulen dan wangi. Cocok untuk kebutuhan rumah tangga dan warung makan.",
-  },
-  {
-    id: "beras-2",
-    name: "Beras Pandan Wangi 10kg",
-    price: 145000,
-    image: "https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?auto=format&fit=crop&q=80&w=500",
-    category: "Beras",
-    unit: "Karung",
-    isNew: true,
-    description: "Beras pandan wangi asli dengan aroma khas yang menggugah selera.",
-  },
-  // Gula
-  {
-    id: "gula-1",
-    name: "Gulaku Gula Pasir Putih 1kg",
-    price: 16500,
-    originalPrice: 18000,
-    image: "https://images.unsplash.com/photo-1581447100595-3a813597427a?auto=format&fit=crop&q=80&w=500",
-    category: "Gula",
-    unit: "Pack",
-    discount: "8%",
-    description: "Gula pasir putih berkualitas tinggi, higienis dan bersih untuk segala keperluan masak.",
-  },
-  {
-    id: "gula-2",
-    name: "Gula Merah Jawa 500g",
-    price: 12000,
-    image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&q=80&w=500",
-    category: "Gula",
-    unit: "Pack",
-    description: "Gula merah asli Jawa, manis alami untuk minuman dan masakan tradisional.",
-  },
-  // Minyak Goreng
-  {
-    id: "minyak-1",
-    name: "Bimoli Minyak Goreng 2 Liter",
-    price: 34500,
-    originalPrice: 38900,
-    image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&q=80&w=500",
-    category: "Minyak Goreng",
-    unit: "Botol",
-    discount: "11%",
-    description: "Minyak goreng berkualitas dengan kandungan vitamin E untuk hasil gorengan yang renyah.",
-  },
-  {
-    id: "minyak-2",
-    name: "Sania Minyak Goreng Refill 2L",
-    price: 32000,
-    image: "https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?auto=format&fit=crop&q=80&w=500",
-    category: "Minyak Goreng",
-    unit: "Pouch",
-    isNew: true,
-    description: "Minyak goreng kemasan refill hemat, cocok untuk kebutuhan sehari-hari.",
-  },
-  // Daging
-  {
-    id: "daging-1",
-    name: "Daging Sapi Has Dalam 500g",
-    price: 85000,
-    image: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&q=80&w=500",
-    category: "Daging",
-    unit: "Pack",
-    description: "Daging sapi segar pilihan, cocok untuk steak, rendang, atau masakan berkuah.",
-  },
-  {
-    id: "daging-2",
-    name: "Ayam Potong Karkas 1kg",
-    price: 38000,
-    originalPrice: 42000,
-    image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&q=80&w=500",
-    category: "Daging",
-    unit: "Ekor",
-    discount: "10%",
-    description: "Ayam potong segar berkualitas, siap olah untuk berbagai masakan.",
-  },
-  // Telur
-  {
-    id: "telur-1",
-    name: "Telur Ayam Negeri 1kg (±16 butir)",
-    price: 28000,
-    image: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&q=80&w=500",
-    category: "Telur",
-    unit: "Kg",
-    description: "Telur ayam negeri segar dengan ukuran seragam, kaya protein.",
-  },
-  {
-    id: "telur-2",
-    name: "Telur Bebek Asin 6 butir",
-    price: 24000,
-    image: "https://images.unsplash.com/photo-1498654077810-12c21d4d6dc3?auto=format&fit=crop&q=80&w=500",
-    category: "Telur",
-    unit: "Pack",
-    isNew: true,
-    description: "Telur bebek asin khas dengan rasa gurih dan kuning telur masir.",
-  },
-  // Susu
-  {
-    id: "susu-1",
-    name: "Frisian Flag SKM Putih 370g",
-    price: 12500,
-    image: "https://images.unsplash.com/photo-1550583724-12558142ab12?auto=format&fit=crop&q=80&w=500",
-    category: "Susu",
-    unit: "Kaleng",
-    description: "Susu kental manis berkualitas untuk minuman dan bahan masakan.",
-  },
-  {
-    id: "susu-2",
-    name: "Indomilk UHT Full Cream 1L",
-    price: 18500,
-    originalPrice: 20000,
-    image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&q=80&w=500",
-    category: "Susu",
-    unit: "Kotak",
-    discount: "8%",
-    description: "Susu UHT full cream dengan kandungan gizi lengkap untuk seluruh keluarga.",
-  },
-  // Garam & Bumbu
-  {
-    id: "bumbu-1",
-    name: "Garam Cap Kapal 500g",
-    price: 5500,
-    image: "https://images.unsplash.com/photo-1518110925495-5fe2fda0442c?auto=format&fit=crop&q=80&w=500",
-    category: "Garam & Bumbu",
-    unit: "Pack",
-    description: "Garam beryodium berkualitas untuk kebutuhan masak sehari-hari.",
-  },
-  {
-    id: "bumbu-2",
-    name: "Merica Bubuk 50g",
-    price: 8500,
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=500",
-    category: "Garam & Bumbu",
-    unit: "Pack",
-    description: "Merica bubuk halus dengan aroma kuat untuk bumbu masakan.",
-  },
-  // Ikan
-  {
-    id: "ikan-1",
-    name: "Ikan Tongkol Segar 1kg",
-    price: 35000,
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=500",
-    category: "Ikan",
-    unit: "Kg",
-    description: "Ikan tongkol segar tangkapan nelayan lokal, kaya omega-3.",
-  },
-  {
-    id: "ikan-2",
-    name: "Ikan Teri Medan Kering 250g",
-    price: 45000,
-    originalPrice: 50000,
-    image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=500",
-    category: "Ikan",
-    unit: "Pack",
-    discount: "10%",
-    description: "Ikan teri Medan kering berkualitas untuk sambal atau lauk.",
-  },
-  // Sayuran
-  {
-    id: "sayur-1",
-    name: "Kangkung Segar 1 Ikat",
-    price: 5000,
-    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&q=80&w=500",
-    category: "Sayuran",
-    unit: "Ikat",
-    description: "Kangkung segar pilihan, cocok untuk tumis atau plecing.",
-  },
-  {
-    id: "sayur-2",
-    name: "Wortel Segar 500g",
-    price: 8000,
-    image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&q=80&w=500",
-    category: "Sayuran",
-    unit: "Pack",
-    isNew: true,
-    description: "Wortel segar berkualitas, kaya vitamin A untuk kesehatan mata.",
-  },
-];
-
-// Function to get random products
-function getRandomProducts(products: ProductType[], count: number): ProductType[] {
-  const shuffled = [...products].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
-}
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(null);
@@ -210,10 +14,9 @@ export default function Home() {
   const [randomProducts, setRandomProducts] = useState<ProductType[]>([]);
   const [isMounted, setIsMounted] = useState(false);
 
-  // Get random 10 products on mount
   useEffect(() => {
     setIsMounted(true);
-    setRandomProducts(getRandomProducts(sembakoProducts, 10));
+    setRandomProducts(getRandomProducts(10));
   }, []);
 
   const handleViewDetail = (product: ProductType) => {
@@ -232,14 +35,12 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-12 pb-20">
-      {/* Hero Section */}
       <section className="bg-white pt-6">
         <div className="max-w-7xl mx-auto px-4">
           <HeroSlider />
         </div>
       </section>
 
-      {/* Categories */}
       <section className="max-w-7xl mx-auto px-4 w-full">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
@@ -253,7 +54,6 @@ export default function Home() {
         <CategoryGrid />
       </section>
 
-      {/* Info Banner */}
       <section className="bg-gradient-to-r from-primary to-red-700 py-8 overflow-hidden relative">
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
         <div className="max-w-7xl mx-auto px-4 relative z-10">
@@ -277,7 +77,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Katalog Sembako Grosir - Random 10 Products */}
       <section className="max-w-7xl mx-auto px-4 w-full">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
@@ -301,7 +100,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Us Section */}
       <section className="max-w-7xl mx-auto px-4 w-full pt-12 border-t border-gray-100">
         <h2 className="text-xl font-black text-gray-900 italic tracking-tight mb-8 text-center">KENAPA PILIH KLIPANG GROSIR?</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -346,7 +144,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Product Detail Modal */}
       <ProductDetailModal 
         product={selectedProduct}
         isOpen={isModalOpen}
