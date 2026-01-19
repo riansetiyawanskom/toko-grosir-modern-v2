@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,12 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body className={`${inter.className} antialiased`}>
+        <Script
+          id="orchids-browser-logs"
+          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
+          strategy="afterInteractive"
+          data-orchids-project-id="18a9710d-bdb1-4658-ba0c-0bbaf9a2020b"
+        />
         <Header />
         <main className="min-h-screen">
           {children}
