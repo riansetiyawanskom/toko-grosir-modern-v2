@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Facebook, Instagram, Twitter, Youtube, Phone, Mail, MapPin } from "lucide-react";
 
+// Klipang Grosir Footer Component
+
 export function Footer() {
   return (
     <footer className="bg-white border-t border-gray-200 pt-12 pb-6">
