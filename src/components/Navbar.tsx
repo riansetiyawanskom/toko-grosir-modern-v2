@@ -153,24 +153,24 @@ export function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-gray-200 p-4">
-          <p className="text-xs font-bold text-gray-400 mb-3 uppercase">Kategori Sembako</p>
-          <div className="grid grid-cols-3 gap-2">
-            {sembakoCategories.map((cat, index) => (
-              <a 
-                key={index}
-                href={cat.href}
-                className="flex flex-col items-center gap-1 p-3 bg-gray-50 rounded-lg hover:bg-primary/10 transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <cat.icon className="w-5 h-5 text-primary" />
-                <span className="text-[10px] font-semibold text-gray-700">{cat.name}</span>
-              </a>
-            ))}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-white border-b border-gray-200 p-4">
+            <p className="text-xs font-bold text-gray-400 mb-3 uppercase">Kategori Sembako</p>
+            <div className="grid grid-cols-3 gap-2">
+              {sembakoCategories.map((cat, index) => (
+                <Link 
+                  key={index}
+                  href={cat.href}
+                  className="flex flex-col items-center gap-1 p-3 bg-gray-50 rounded-lg hover:bg-primary/10 transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <cat.icon className="w-5 h-5 text-primary" />
+                  <span className="text-[10px] font-semibold text-gray-700">{cat.name}</span>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
     </header>
   );
 }
