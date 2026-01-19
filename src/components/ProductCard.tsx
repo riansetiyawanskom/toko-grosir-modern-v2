@@ -21,32 +21,32 @@ export function ProductCard({ product, onViewDetail, isBestSeller }: ProductCard
     }).format(price);
   };
 
-  return (
-    <div className="bg-white rounded-xl border border-gray-100 p-4 hover:shadow-xl hover:border-primary/20 transition-all group relative flex flex-col h-full">
-      {/* Badge Container */}
-        <div className="absolute top-2 left-2 z-10 flex flex-col gap-1">
-          {isBestSeller && (
-            <Badge className="bg-orange-500 hover:bg-orange-600 text-[10px] px-1.5 py-0 font-bold flex items-center gap-1">
-              <Flame className="w-3 h-3" />
-              TERLARIS
-            </Badge>
-          )}
-          {product.isNew && (
-            <Badge className="bg-blue-600 hover:bg-blue-700 text-[10px] px-1.5 py-0 font-bold">BARU</Badge>
-          )}
-          {product.discount && (
-            <Badge className="bg-primary hover:bg-primary text-[10px] px-1.5 py-0 font-bold">-{product.discount}</Badge>
-          )}
-        </div>
+    return (
+      <div className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-primary/20 transition-all group relative flex flex-col h-full">
+        {/* Badge Container */}
+          <div className="absolute top-2 left-2 z-10 flex flex-col gap-1">
+            {isBestSeller && (
+              <Badge className="bg-orange-500 hover:bg-orange-600 text-[10px] px-1.5 py-0 font-bold flex items-center gap-1">
+                <Flame className="w-3 h-3" />
+                TERLARIS
+              </Badge>
+            )}
+            {product.isNew && (
+              <Badge className="bg-blue-600 hover:bg-blue-700 text-[10px] px-1.5 py-0 font-bold">BARU</Badge>
+            )}
+            {product.discount && (
+              <Badge className="bg-primary hover:bg-primary text-[10px] px-1.5 py-0 font-bold">-{product.discount}</Badge>
+            )}
+          </div>
 
-      {/* Image */}
-      <div className="relative aspect-square mb-4 overflow-hidden rounded-lg bg-gray-50 flex items-center justify-center p-4">
-        <img 
-          src={product.image} 
-          alt={product.name}
-          className="object-contain w-full h-full group-hover:scale-110 transition-transform duration-300"
-        />
-      </div>
+        {/* Image - Full bleed to edges */}
+        <div className="relative aspect-square overflow-hidden bg-gray-50">
+          <img 
+            src={product.image} 
+            alt={product.name}
+            className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
+          />
+        </div>
 
       {/* Info */}
       <div className="flex-1 flex flex-col">
