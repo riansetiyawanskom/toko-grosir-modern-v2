@@ -92,7 +92,7 @@ export const sembakoProducts: ProductType[] = [
     name: "Tropical Minyak Goreng 5L",
     price: 78000,
     originalPrice: 85000,
-    image: "https://images.unsplash.com/photo-1612187715955-f6d79c5461fb?w=500&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1519064438290-27b36a602f68?w=500&h=500&fit=crop",
     category: "Minyak Goreng",
     unit: "Jerigen",
     discount: "8%",
