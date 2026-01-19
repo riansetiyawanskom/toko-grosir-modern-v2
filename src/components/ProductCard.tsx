@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Eye } from "lucide-react";
+import { Eye, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ProductType } from "@/components/ProductDetailModal";
@@ -9,9 +9,10 @@ import { ProductType } from "@/components/ProductDetailModal";
 interface ProductCardProps {
   product: ProductType;
   onViewDetail: (product: ProductType) => void;
+  isBestSeller?: boolean;
 }
 
-export function ProductCard({ product, onViewDetail }: ProductCardProps) {
+export function ProductCard({ product, onViewDetail, isBestSeller }: ProductCardProps) {
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
