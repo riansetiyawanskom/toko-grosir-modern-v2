@@ -7,8 +7,8 @@ import { Footer } from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Klik Indogrosir - Solusi Belanja Grosir Online",
-  description: "Belanja kebutuhan grosir dan rumah tangga dengan harga terbaik di Klik Indogrosir.",
+  title: "Klipang Grosir - Solusi Belanja Grosir Online",
+  description: "Belanja kebutuhan grosir dan rumah tangga dengan harga terbaik di Klipang Grosir.",
 };
 
 export default function RootLayout({

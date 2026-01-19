@@ -14,7 +14,7 @@ export function Footer() {
               <span>INDOGROSIR</span>
             </div>
             <p className="text-sm text-gray-600 leading-relaxed mb-6">
-              Klik Indogrosir adalah toko online dari Indogrosir yang melayani kebutuhan grosir untuk pedagang retail, UMKM, dan kebutuhan rumah tangga dengan harga terbaik.
+              Klipang Grosir adalah toko online yang melayani kebutuhan grosir untuk pedagang retail, UMKM, dan kebutuhan rumah tangga dengan harga terbaik.
             </p>
             <div className="flex gap-4">
               <Link href="#" className="p-2 bg-gray-100 rounded-full hover:bg-primary hover:text-white transition-colors">
