@@ -126,15 +126,15 @@ export function Navbar() {
                 </div>
               )}
             </div>
-            <div className="flex gap-6 ml-6 text-sm font-semibold text-gray-700">
-              <Link href="#beras" className="hover:text-primary transition-colors">Beras</Link>
-              <Link href="#gula" className="hover:text-primary transition-colors">Gula</Link>
-              <Link href="#minyak" className="hover:text-primary transition-colors">Minyak</Link>
-              <Link href="#daging" className="hover:text-primary transition-colors">Daging</Link>
-              <Link href="#telur" className="hover:text-primary transition-colors">Telur</Link>
-              <Link href="#susu" className="hover:text-primary transition-colors">Susu</Link>
-              <Link href="#bumbu" className="hover:text-primary transition-colors">Bumbu</Link>
-            </div>
+              <div className="flex gap-6 ml-6 text-sm font-semibold text-gray-700">
+                <Link href="/kategori/beras" className="hover:text-primary transition-colors">Beras</Link>
+                <Link href="/kategori/gula" className="hover:text-primary transition-colors">Gula</Link>
+                <Link href="/kategori/minyak-goreng" className="hover:text-primary transition-colors">Minyak</Link>
+                <Link href="/kategori/daging" className="hover:text-primary transition-colors">Daging</Link>
+                <Link href="/kategori/telur" className="hover:text-primary transition-colors">Telur</Link>
+                <Link href="/kategori/susu" className="hover:text-primary transition-colors">Susu</Link>
+                <Link href="/kategori/garam-bumbu" className="hover:text-primary transition-colors">Bumbu</Link>
+              </div>
           </nav>
           <div className="flex gap-4 items-center">
             <span className="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded font-bold">
