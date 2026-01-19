@@ -198,26 +198,11 @@ const sembakoProducts: ProductType[] = [
   },
 ];
 
-// Group products by category
-const productsByCategory = sembakoProducts.reduce((acc, product) => {
-  if (!acc[product.category]) {
-    acc[product.category] = [];
-  }
-  acc[product.category].push(product);
-  return acc;
-}, {} as Record<string, ProductType[]>);
-
-const categoryIds: Record<string, string> = {
-  "Beras": "beras",
-  "Gula": "gula",
-  "Minyak Goreng": "minyak",
-  "Daging": "daging",
-  "Telur": "telur",
-  "Susu": "susu",
-  "Garam & Bumbu": "bumbu",
-  "Ikan": "ikan",
-  "Sayuran": "sayuran",
-};
+// Function to get random products
+function getRandomProducts(products: ProductType[], count: number): ProductType[] {
+  const shuffled = [...products].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+}
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(null);
