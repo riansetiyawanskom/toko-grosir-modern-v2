@@ -33,8 +33,8 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <div className="bg-primary text-white p-2 rounded flex items-center gap-1 font-black text-xl italic tracking-tighter">
-              <span className="text-secondary">KLIK</span>
-              <span>INDOGROSIR</span>
+<span className="text-secondary">KLIPANG</span>
+                <span>GROSIR</span>
             </div>
           </Link>
 
