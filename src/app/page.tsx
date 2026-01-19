@@ -271,32 +271,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Product Sections by Category */}
-      {Object.entries(productsByCategory).map(([category, products]) => (
-        <section 
-          key={category} 
-          id={categoryIds[category]} 
-          className="max-w-7xl mx-auto px-4 w-full scroll-mt-32"
-        >
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-3">
-              <div className="w-1.5 h-8 bg-primary rounded-full"></div>
-              <h2 className="text-xl font-black text-gray-900 italic tracking-tight uppercase">{category}</h2>
-            </div>
-            <span className="text-xs text-gray-500 font-semibold">{products.length} Produk</span>
+      {/* Katalog Sembako Grosir - Random 10 Products */}
+      <section className="max-w-7xl mx-auto px-4 w-full">
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-3">
+            <div className="w-1.5 h-8 bg-primary rounded-full"></div>
+            <h2 className="text-xl font-black text-gray-900 italic tracking-tight">KATALOG SEMBAKO GROSIR</h2>
           </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {products.map((product) => (
-              <ProductCard 
-                key={product.id} 
-                product={product} 
-                onViewDetail={handleViewDetail}
-              />
-            ))}
-          </div>
-        </section>
-      ))}
+          <span className="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-bold">
+            Produk Pilihan
+          </span>
+        </div>
+        
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
+          {randomProducts.map((product, index) => (
+            <ProductCard 
+              key={product.id} 
+              product={product} 
+              onViewDetail={handleViewDetail}
+              isBestSeller={index < 3}
+            />
+          ))}
+        </div>
+      </section>
 
       {/* Why Us Section */}
       <section className="max-w-7xl mx-auto px-4 w-full pt-12 border-t border-gray-100">
