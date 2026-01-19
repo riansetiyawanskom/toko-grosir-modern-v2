@@ -69,7 +69,7 @@ Apakah produk ini masih tersedia? Mohon informasi lebih lanjut. Terima kasih! ðŸ
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl p-0 overflow-hidden" showCloseButton={false}>
+      <DialogContent className="max-w-5xl p-0 overflow-hidden" showCloseButton={false}>
         <DialogHeader className="sr-only">
           <DialogTitle>{product.name}</DialogTitle>
         </DialogHeader>
