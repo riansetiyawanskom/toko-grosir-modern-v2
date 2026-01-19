@@ -208,9 +208,11 @@ export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [randomProducts, setRandomProducts] = useState<ProductType[]>([]);
+  const [isMounted, setIsMounted] = useState(false);
 
   // Get random 10 products on mount
   useEffect(() => {
+    setIsMounted(true);
     setRandomProducts(getRandomProducts(sembakoProducts, 10));
   }, []);
 
@@ -223,6 +225,18 @@ export default function Home() {
     setIsModalOpen(false);
     setSelectedProduct(null);
   };
+
+  if (!isMounted) {
+    return (
+      <div className="flex flex-col gap-12 pb-20 opacity-0">
+        <section className="bg-white pt-6">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="aspect-[21/9] sm:aspect-[25/8] w-full bg-gray-100 animate-pulse rounded-2xl" />
+          </div>
+        </section>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col gap-12 pb-20">
