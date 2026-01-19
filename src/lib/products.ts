@@ -40,7 +40,7 @@ export const sembakoProducts: ProductType[] = [
     name: "Gulaku Gula Pasir Putih 1kg",
     price: 16500,
     originalPrice: 18000,
-    image: "https://images.unsplash.com/photo-1550411294-098c016fba4a?w=500&h=500&fit=crop",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/18a9710d-bdb1-4658-ba0c-0bbaf9a2020b/image-resized-1768840030764.webp?width=500&height=500&resize=contain",
     category: "Gula",
     unit: "Pack",
     discount: "8%",
