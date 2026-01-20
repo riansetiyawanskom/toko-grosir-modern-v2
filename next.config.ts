@@ -1,3 +1,5 @@
+import type { NextConfig } from "next"; // PASTIKAN BARIS INI ADA
+
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -5,10 +7,13 @@ const nextConfig: NextConfig = {
       { protocol: 'http', hostname: '**' },
     ],
   },
-  // HAPUS ATAU KOMENTARI BARIS DI BAWAH INI:
-  // outputFileTracingRoot: path.resolve(__dirname, '../../'), 
-  
-  typescript: { ignoreBuildErrors: true },
-  eslint: { ignoreDuringBuilds: true },
-  // ... sisa kode lainnya
+  // Konfigurasi lainnya tetap sama
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
+
+export default nextConfig;
