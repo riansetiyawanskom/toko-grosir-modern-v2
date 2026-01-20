@@ -33,15 +33,15 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold text-gray-900 mb-6">Layanan Pelanggan</h3>
-            <ul className="space-y-4 text-sm text-gray-600">
-              <li><Link href="#" className="hover:text-primary transition-colors">Cara Belanja</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Pembayaran</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Pengiriman</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Syarat & Ketentuan</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Kebijakan Privasi</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">FAQ (Tanya Jawab)</Link></li>
-            </ul>
+<h3 className="font-bold text-gray-900 mb-6">Layanan Pelanggan</h3>
+              <ul className="space-y-4 text-sm text-gray-600">
+                <li><Link href="/layanan/cara-belanja" className="hover:text-primary transition-colors">Cara Belanja</Link></li>
+                <li><Link href="/layanan/pembayaran" className="hover:text-primary transition-colors">Pembayaran</Link></li>
+                <li><Link href="/layanan/pengiriman" className="hover:text-primary transition-colors">Pengiriman</Link></li>
+                <li><Link href="/layanan/syarat-ketentuan" className="hover:text-primary transition-colors">Syarat & Ketentuan</Link></li>
+                <li><Link href="/layanan/kebijakan-privasi" className="hover:text-primary transition-colors">Kebijakan Privasi</Link></li>
+                <li><Link href="/layanan/faq" className="hover:text-primary transition-colors">FAQ (Tanya Jawab)</Link></li>
+              </ul>
           </div>
 
           <div>
